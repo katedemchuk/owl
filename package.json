@@ -1,0 +1,7 @@
+{
+  "name": "owl",
+  "version": "1.0.0",
+  "description": "A service for creating tests by teachers and taking them by students",
+  "author": "Kateryna Demchuk",
+  "license": "Apache-2.0"
+}
