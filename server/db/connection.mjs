@@ -1,4 +1,3 @@
-import 'dotenv/config';
 import { MongoClient } from 'mongodb';
 
 const url = process.env.ATLAS_URI;
