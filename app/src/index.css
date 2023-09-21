@@ -71,3 +71,15 @@ form button {
 form a {
   margin-left: 15px;
 }
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #000;
+}
