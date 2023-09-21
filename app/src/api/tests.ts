@@ -1,9 +1,9 @@
 import { Test } from '../types';
 
-const baseUrl = 'http://localhost:5050';
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 export async function getAllTests() {
-  const res = await fetch(`${baseUrl}/tests`);
+  const res = await fetch(`${BASE_URL}/tests`);
   if (!res.ok) {
     const msg = `Could not load all tests: ${res.status}`;
     throw new Error(msg);
@@ -13,7 +13,7 @@ export async function getAllTests() {
 }
 
 export async function getTest(id: string) {
-  const res = await fetch(`${baseUrl}/tests/${id}`);
+  const res = await fetch(`${BASE_URL}/tests/${id}`);
   if (!res.ok) {
     const msg = `Could not load a test: ${res.status}`;
     throw new Error(msg);
