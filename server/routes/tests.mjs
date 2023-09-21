@@ -24,7 +24,7 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   const document = req.body;
-  document.createdAt = new Date();
+  document.createdAt = document.updatedAt = new Date();
   const result = await collection.insertOne(document);
   res.send(result).status(204);
 });
