@@ -7,6 +7,9 @@ export function Navbar() {
         <li>
           <Link to="/">Всі тести</Link>
         </li>
+        <li>
+          <Link to="/create-test">Створити тест</Link>
+        </li>
       </ul>
     </nav>
   );
