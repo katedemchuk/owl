@@ -1,5 +1,8 @@
-body {
+body, textarea {
   font-family: Roboto;
+}
+
+body {
   margin: 0;
 }
 
