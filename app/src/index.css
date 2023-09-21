@@ -7,3 +7,15 @@ table, th, td {
   border: 1px solid #000;
   border-collapse: collapse;
 }
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
