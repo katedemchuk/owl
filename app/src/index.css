@@ -36,10 +36,10 @@ form > * {
   display: block;
 }
 
-form label {
+/* form label {
   margin-top: 15px;
   margin-bottom: 5px;
-}
+} */
 
 form input {
   min-height: 25px;
@@ -82,4 +82,9 @@ a:hover {
 
 a:visited {
   color: #000;
+}
+
+.input-inline {
+  display: flex;
+  align-items: center;
 }

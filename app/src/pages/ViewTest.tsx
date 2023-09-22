@@ -1,6 +1,8 @@
 import { getTest } from '../api/tests';
 import { useLoaderData } from 'react-router-dom';
 import { Test } from '../types';
+import { TestInfo } from '../components/TestInfo';
+import { TestQuestions } from '../components/TestQuestions';
 
 export async function loader({ params }: any) {
   const test = await getTest(params?.testId);
@@ -9,15 +11,16 @@ export async function loader({ params }: any) {
 
 export function ViewTest() {
   const { test } = useLoaderData() as { test: Test };
-  const { title, description, duration, questions, updatedAt } = test || {};
+  const { questions = [] } = test || {};
 
   return (
-    <section>
-      <h1>{title}</h1>
-      <p>Опис: {description}</p>
-      <p>Тривалість: {duration} хв</p>
-      <p>Останнє оновлення: {updatedAt}</p>
-      <p>Кількість запитань: {questions?.length || 0}</p>
-    </section>
+    <>
+      <section>
+        <TestInfo test={test} />
+      </section>
+      <section>
+        <TestQuestions questions={questions} />
+      </section>
+    </>
   );
 }
