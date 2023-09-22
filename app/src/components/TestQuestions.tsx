@@ -10,7 +10,9 @@ export function TestQuestions({ questions = [] }: TestQuestionsProps) {
   return (
     <>
       <h2>Запитання</h2>
-      {questions.map(question => <QuestionItem question={question} />)}
+      <ul>
+        {questions.map((question, index) => <li key={index}><QuestionItem question={question} /></li>)}
+      </ul>
       <AddQuestion />
     </>
   );

@@ -23,7 +23,7 @@ export function Dashboard() {
         </thead>
         <tbody>
           {tests.map(({ _id, title, duration, updatedAt, questions }) =>
-            <tr>
+            <tr key={_id}>
               <td><Link to={`/test/${_id}`}>{title}</Link></td>
               <td>{duration}</td>
               <td>{updatedAt}</td>

@@ -1,16 +1,15 @@
-import { useState } from 'react';
-import { QuestionForm } from './QuestionForm';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 
 export function AddQuestion() {
-  const [showForm, setShowForm] = useState(false);
-
-  const toggleShowForm = () => setShowForm(!showForm);
+  const { pathname } = useLocation();
 
   return (
     <>
-      {!showForm && <button type="button" onClick={toggleShowForm}>Додати запитання</button>}
-      {showForm && <QuestionForm />}
-      {showForm && <button type="button" onClick={toggleShowForm}>Відмінити</button>}
+      {!pathname.includes('create-question') &&
+      <Link to="create-question">
+        Додати запитання
+      </Link>}
+      <Outlet />
     </>
-  )
+  );
 }

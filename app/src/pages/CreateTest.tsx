@@ -1,10 +1,12 @@
 import { Form, Link, redirect } from 'react-router-dom';
-import { createTest, type createTestInput } from '../api/tests';
+import { createTest } from '../api/tests';
+import { Test } from '../types';
 
-export async function action({ request, params}: any) {
+export async function action({ request, params }: any) {
+  console.log(params);
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
-  const insertedId = await createTest(data as createTestInput);
+  const insertedId = await createTest(data as Partial<Test>);
   return redirect(`/test/${insertedId}`);
 }
 

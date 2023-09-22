@@ -7,6 +7,7 @@ import { Root } from './pages/Root';
 import { Dashboard, loader as dashboardLoader } from './pages/Dashboard';
 import { ViewTest, loader as testLoader } from './pages/ViewTest';
 import { CreateTest, action as createTestAction } from './pages/CreateTest';
+import { QuestionForm, action as createQuestionAction } from './components/QuestionForm';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,13 @@ const router = createBrowserRouter([
         path: 'test/:testId',
         element: <ViewTest />,
         loader: testLoader,
+        children: [
+          {
+            path: 'create-question',
+            element: <QuestionForm />,
+            action: createQuestionAction,
+          }
+        ]
       },
       {
         path: 'create-test',

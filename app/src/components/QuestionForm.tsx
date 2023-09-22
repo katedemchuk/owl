@@ -1,5 +1,19 @@
+import { Form, redirect } from 'react-router-dom';
+import { addQuestion } from '../api/tests';
 import { useState } from 'react';
 import { Question } from '../types';
+import { Link } from 'react-router-dom';
+
+export async function action({ request, params }: any) {
+  const formData = await request.formData();
+  const data = Object.fromEntries(formData);
+  const data1 = await addQuestion(
+    params.testId,
+    data as Partial<Question>
+  );
+  console.log(data1);
+  return redirect(`../`);
+}
 
 const INIT_QUESTION: Question = { text: '', value: 1, options: [] };
 
@@ -12,7 +26,7 @@ export function QuestionForm() {
   };
 
   return(
-    <>
+    <Form method="patch">
       <label htmlFor="text">Текст запитання</label>
       <input
         type="text"
@@ -26,11 +40,11 @@ export function QuestionForm() {
         type="number"
         name="value"
         id="value"
-        min={0.1}
         value={question.value}
         onChange={(e) => updateQuestion('value', +e.target.value)}
       />
-      <button type="button">Зберегти запитання</button>
-    </>
+      <button type="submit">Зберегти запитання</button>
+      <Link to="../">Відмінити</Link>
+    </Form>
   );
 }
