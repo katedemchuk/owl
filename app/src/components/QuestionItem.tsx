@@ -1,6 +1,6 @@
 import { Question } from '../types';
 // import { AddOption } from './AddOption';
-import { OptionItem } from './Option';
+import { OptionItem } from './OptionItem';
 
 type QuestionItemProps = {
   question: Question;
