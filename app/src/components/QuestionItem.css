@@ -1,0 +1,9 @@
+.question-item {
+  border: 1px solid;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.question-item:not(last-child) {
+  margin-bottom: 10px;
+}

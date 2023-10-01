@@ -1,4 +1,5 @@
 import { Question } from '../types';
+import './QuestionItem.css';
 // import { AddOption } from './AddOption';
 import { OptionItem } from './OptionItem';
 
@@ -10,7 +11,7 @@ export function QuestionItem({ question }: QuestionItemProps) {
   const { text, value, options } = question || {};
 
   return (
-    <>
+    <section className="question-item">
       <h3>{text}</h3>
       <p>Кількість балів: {value}</p>
       <ul>
@@ -18,6 +19,6 @@ export function QuestionItem({ question }: QuestionItemProps) {
         {options?.map((option, index) => <li key={index}><OptionItem option={option} /></li>)}
         {/* <AddOption /> */}
       </ul>
-    </>
+    </section>
   );
 }
